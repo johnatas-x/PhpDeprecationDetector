@@ -63,7 +63,7 @@ class ScanCommand extends Command
     /**
      *
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('scan')
             ->setDescription('Analyzes PHP code and searches issues with deprecated functionality in newer interpreter versions.')
