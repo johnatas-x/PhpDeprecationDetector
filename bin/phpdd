@@ -28,6 +28,11 @@ $version = file_exists(__DIR__.'/version.txt') ? trim(file_get_contents(__DIR__.
 
 $app = new Application('phpcf', $version);
 $command = new ScanCommand();
-$app->add($command);
+if (method_exists($app, 'add')) {
+    $app->add($command);
+} else {
+    // works for symfony/console up to v8
+    $app->addCommand($command);
+}
 $app->setDefaultCommand($command->getName(), true);
 $app->run();

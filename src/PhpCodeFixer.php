@@ -194,7 +194,7 @@ class PhpCodeFixer {
      * @param Report|null $report
      * @return Report|bool
      */
-    public function checkFile($file, Report $report = null) {
+    public function checkFile($file, ?Report $report = null) {
         $this->scannedFiles[] = realpath($file);
         
         if ($report === null) {
